@@ -41,6 +41,8 @@ Route::post('/entrar', 'EntrarController@entrar');
 Route::get('/registrar', 'RegistroController@create');
 Route::post('/registrar', 'RegistroController@store');
 
+Route::get('/sobre', 'SobreController@index')->name('sobre.index');
+
 Route::get('/sair', function () {
     Auth::logout();
     return redirect('/entrar');

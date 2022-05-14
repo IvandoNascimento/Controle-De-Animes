@@ -18,72 +18,122 @@
         display: none;
         position: absolute;
         background-color: #f9f9f9;
-        min-width: 160px;
+        border-radius: 5px;
+        min-width: 100px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
+        
       }
       /* Show the dropdown menu on hover */
       .dropdown:hover .dropdown-content {
         display: block;
+        
       }
       
       /* Change the background color of the dropdown button when the dropdown content is shown */
-      .dropdown:hover .dropbtn {
-        background-color: #3e8e41;
+      .dropdown:hover .dropdown-content {
+        /*background-color: #3e8e41;*/
+        
       }
+      .dropdown-item:hover{
+        background-color:deepskyblue;
+        
+        border-radius: 5px;
+      }
+     
+     
+
       </style>
     <title>Controle de animes</title>
 </head>
 <body>
-<div id="anime">
-  <div>
-    {{--!style="background-color: #1786d4 #545454;" --}}
-    <nav class="navbar navbar-expand-xl navbar-light" style="background-color: #3BFFB0" >
-      <div class="container-fluid d-flex justify-content-xl-end">
+
+<header>
+      {{--!style="background-color: #1786d4 ;" --}}
+  <nav class="navbar navbar-expand-xl navbar-light" style="background-color: #4A235E" >
+    <div class="container-fluid d-flex justify-content-xl-end">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">Lista de Animes</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item " >
+            <a class="nav-link active"  style="color: white"  aria-current="page" href="/animes/">Home</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link active a-primary"  style="color: white" href="{{route('login')}}">Login</a>
+          </li>
+        </ul>
+        @auth
         
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">Lista de Animes</span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item ">
-              <a class="nav-link active" aria-current="page" href="/animes/">Home</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link active" href="{{route('login')}}">Login</a>
-            </li>
-          </ul>
-          @auth
-          
-          <div class="dropdown">
-            <button class="btn btn-primary  dropdown-toggle text-dark " style="background-color: #1BB1CC " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Sobre
-            </button>
-            <div class="dropdown-content" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Quem sou eu</a>
-              <a class="dropdown-item" href="#">Contato</a>
-              <a class="dropdown-item" href="https://myanimelist.net/">My Anime List</a>
-            </div>
+        <div class="dropdown">
+          <button class="btn btn-primary  dropdown-toggle  " style="background-color: #14879C ; " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sobre
+          </button>
+          <div class="dropdown-content" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{{route('sobre.index')}}">Quem sou eu</a>
+            
+            <a class="dropdown-item" href="https://myanimelist.net/">My Anime List</a>
           </div>
-        
-          <div class="nav-item ">
-            <button href="/sair" class="btn btn-primary ms-4 me-4  " style="background-color:#F00D00">Logout</button>
-          </div>
-          @endauth
-          @guest
-          <a href="/entrar">Entrar</a>
-          @endguest
         </div>
+      
+        <div class="nav-item ">
+          <button href="/sair" class="btn btn-primary ms-4 me-4  " style="background-color:#AD1D1A">Logout</button>
+        </div>
+        @endauth
+        @guest
+        <a href="/entrar">Entrar</a>
+        @endguest
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
+</header>  
+
+<main>
   <div class="container">
-      <div class="jumbotron" >
-          <h1>@yield('cabecalho')</h1>
+    <div class="jumbotron" >
+        <h1 class="mt-2">@yield('cabecalho')</h1>
+    </div>
+    @yield('conteudo')
+    </div>
+</main>
+
+
+<footer class="footer mt-auto py-2 bg-light fixed-bottom"   >
+  <div class="container"  >
+    <div class="row mt-4"> 
+      <div class="col-6 ">
+        <h4>Copyright</h4>
+        <span>Todos os direitos reservados</span>
       </div>
-      @yield('conteudo')
+      <div class="col-1 ">
+        <br>
+        <span>Contatos</span>
+        
+      </div>
+      <div class="col-3 ">
+        <br>
+        <span >Nascimentodoivan@gmail.com</span>
+      </div>
+      <div class="col-2 ">
+        <a class="me-2" href="https://github.com/IvandoNascimento" target="_blank"  rel="noopener noreferrer" >
+          <img src="{{url('/storage/images/GitHub-Mark-64px.png')}}" alt="Logo do GitHub" width="50">
+        </a>
+        <a target="_blank" rel="noopener noreferrer">
+          <img src="{{url('/storage/images/Li-In-Bug.png')}}" alt="Logo do LinkedIn" width="50" height="50">
+        </a>
+      </div> 
+    </div>
   </div>
-<div></div>
+</footer>
+
+  
+
+
+
+
+
+
 
 
 <script>

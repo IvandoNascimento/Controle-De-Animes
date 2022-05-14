@@ -82,7 +82,7 @@ class AnimesController extends Controller{
 
         
 
-        $request->session()->flash('mensagem', "Anime com id {$anime->id} e com suas temporadas e episodios criada : {$anime->nome}");
+        $request->session()->flash('mensagem', "Anime {$anime->nome} adicionado com sucesso na lista");
 
         
         return redirect()->route('animes.index');
