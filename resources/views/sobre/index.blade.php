@@ -16,18 +16,26 @@
 						<div class="col col-3">
 							<label for="nome">Nome</label>
 								<input readonly placeholder="Ivan do Nascimento" type="text" class="form-control" name="nome" id="nome">
+                
+                <label class="" for="Idade">Idade</label>
+								<input readonly type="number" placeholder="21 Anos" class="form-control" >
 						</div>
 						<div class="col col-2">
-							<label for="qtd_temporadas">Idade</label>
-								<input readonly type="number" placeholder="21 Anos" class="form-control" name="qtd_temporadas" id="qtd_temporadas">
+							<span>sla</span>
 						</div>
-						<div class="col col-2">
-							<label for="ep_temporada">Ep por Temporada</label>
+						<div class="col col-4">
+							<label for="">Formaçao</label>
 								<textarea readonly placeholder="Estudande de Bacharelado em Ciência da Computação na Universidade Federal do Agreste de Pernambuco. "
 							 name="" id="" cols="30" rows="3" style="resize: none;"></textarea>
 							
 						</div>
-					  </div>
+            <div class="col col-2">
+							<label for="">Tecnologias</label>
+								<textarea readonly placeholder="WEB: Html, Css, JavaScript, PHP, SQL, Laravel. &#10;Outras: Java, GitHub, C, Python, Arduino  "
+							 name="" id="" cols="22" rows="3" style="resize: none;"></textarea>
+							
+						</div>
+					</div>
 				</div>
 			</form>
         </li>
