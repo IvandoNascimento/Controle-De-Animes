@@ -16,6 +16,7 @@
         <th scope="col">Anime</th>
         <th scope="col">Pontuação</th>
         <th scope="col">Sua pontuação</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -24,8 +25,9 @@
       <tr>
         <th scope="row">{{$i++}}</th>
         <td><a href="/animes/{{ $anime->id }}/temporadas">{{$anime->nome}}</a></td>
-        <td>{{$anime->temporadas->count()}}</td>
-        <td>0</td>
+        <td>{{$anime->rank}}</td>
+        <td>{{$anime->rank}}</td>
+        <td></td>
       </tr>
     
     @endforeach

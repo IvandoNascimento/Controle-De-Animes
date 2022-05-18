@@ -7,8 +7,30 @@
 @section('conteudo')
 
 <div class="container-top">
-    <h3>Sinopse</h3>
-    <p> {{$anime->sinopse}}</p>
+    <div class="row">
+        <div class="col col-7">
+            <h3>Sinopse</h3>
+            <p> {{$anime->sinopse}}</p>
+        </div>
+        <div class="col col-2">
+            <span class="">  Status</span>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>{{$anime->status}}</option>
+                <option value="1">Completado</option>
+                <option value="2">Pretendo Assistir</option>
+              </select>
+        </div>
+        <div class="col col-2">
+            <span>  Nota</span>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>{{$anime->rank}}</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+        </div>
+    </div>
 </div>
 <div class="container-mid">
     <h3>Temporadas</h3>

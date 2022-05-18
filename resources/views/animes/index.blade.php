@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-    Minha Lista de Animes
+   Lista de Animes
 @endsection
 
 @section('conteudo')
