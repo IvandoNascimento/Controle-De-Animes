@@ -14,29 +14,17 @@
     <h3>Temporadas</h3>
     <ul class="list-group">
         @foreach ($temporadas as $temporada)
-            
-            <li class="list-group-item  d-flex justify-content-between align-items-center">
-                <a href="/temporadas/{{$temporada->id}}/episodios"> Temporada {{$temporada->numero}}</a>
-                <span class="badge bg-primary rounded-pill">{{$temporada->getEpisodiosAssistidos()->count()}} / {{$temporada->episodios->count()}}</span>
-            </li>
+            <div class="border-b border-gray-50 rounded p-6  mt-2">
+                <li class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
+                    <a href="/temporadas/{{$temporada->id}}/episodios"> Temporada {{$temporada->numero}}</a>
+                    <span class="badge bg-primary rounded-pill">{{$temporada->getEpisodiosAssistidos()->count()}} / {{$temporada->episodios->count()}}</span>
+                </li>
+            </div>
         @endforeach
         
     </ul>
-    <div class="row">
-        <div class="col col-13"></div>
-        <div class="col col-1">
-            <button class="btn btn-primary mt-2 " onclick="retornaPag()"><i class="fa-solid fa-arrow-rotate-left"></i></button>
-        </div>
-    </div>
+
 </div>
 
 
-
-<script>
-    function retornaPag(){
-     window.history.back();
-}
-
-
-</script>
 @endsection

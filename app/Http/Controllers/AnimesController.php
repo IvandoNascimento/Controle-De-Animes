@@ -8,6 +8,7 @@ use App\Http\Requests\AnimesFormRequest;
 use App\Services\CriadorDeAnime;
 use App\Services\RemoverAnime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -59,7 +60,8 @@ class AnimesController extends Controller{
         return $html;
         */
         //return view('animes.index', ['animes' => $animes]);
-        return view('animes.index', compact('animes','mensagem'));
+        $rota = $request->route()->getName();
+        return view('animes.index', compact('animes','mensagem','rota'));
     }
     
     public function create (){
@@ -131,5 +133,12 @@ class AnimesController extends Controller{
 
         //return redirect()->route('adicionar_anime');
     }
+    public function rankingAnime(Request $request){
 
+        $i=1;
+        $animes = Anime::query()
+            ->orderBy('nome')
+            ->get();
+        return view('animes.ranking', compact('animes','i'));
+    }
 }

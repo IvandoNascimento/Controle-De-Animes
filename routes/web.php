@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\AnimesController;
 use App\Mail\NovoAnime;
 
 Route::get('/', function () {
@@ -26,8 +27,10 @@ Route::get('/animes/criar', 'AnimesController@create')->name('adicionar_anime')-
 Route::post('/animes/criar','AnimesController@store')->middleware('autenticador');
 Route::delete('/animes/{id}','AnimesController@destroy')->middleware('autenticador');
 Route::post('/animes/{id}/editaNome','AnimesController@editAnime')->middleware('autenticador');
+Route::get('animes/ranking','AnimesController@rankingAnime')->name('animes.ranking');
 
 Route::get('/animes/{animeId}/temporadas','TemporadasController@index')->name('temporadas.index');
+
 Route::get('/temporadas/{temporadaId}/episodios','EpisodiosController@index')->name('episodios.index');
 Route::post('/temporadas/{temporadaId}/episodios/assistir','EpisodiosController@assistir')
 ->name('episodios.assistir')->middleware('autenticador');
