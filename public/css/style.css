@@ -1,5 +1,9 @@
 
 
+a {
+  text-decoration: none;
+}
+
 .nav-item:hover {
     background-color: deepskyblue;
 }

@@ -10,16 +10,14 @@
   
 
 @auth
-<a href="{{route('adicionar_anime')}}" class="btn btn-dark mt-2 mb-2" >Adicionar</a>
+<a href="{{route('adicionar_anime')}}" class="btn btn-success mt-2 mb-2" >Adicionar</a>
 
 @endauth
-
-
 <ul class="list-group ">
   @foreach ($animes as $anime)
-    <li  href="#"  class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
+    <li  class="list-group-item list-group-item-info d-flex justify-content-between align-items-center rounded p-6 mt-2">
       <span id="nome-anime-{{ $anime->id }}">{{ $anime->nome }}</span>
-
+      
         <div class="input-group w-50" hidden id="input-nome-anime-{{ $anime->id }}">
             <input type="text" class="form-control" value="{{ $anime->nome }}">
             <div class="input-group-append">
@@ -47,8 +45,9 @@
           <button class="btn btn-danger btn-sm">
               <i class="far fa-trash-alt"></i>
           </button>
-          <button  class="btn btn-primary btn-sm"  disabled="true"><i class="fa-solid fa-circle-plus"></i></button>
+          
       </form>
+        <a href="/animes/ranking" class="btn btn-primary btn-sm ms-1" ><i class="fa-solid fa-ranking-star"></i></a>
       @endauth
     </span>
     </li>

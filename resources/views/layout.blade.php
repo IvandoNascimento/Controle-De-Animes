@@ -10,22 +10,23 @@
     <title>Controle de animes</title>
 </head>
 <body>
-
-<header>
-      {{--!style="background-color: #1786d4 ;" --}}
+<div id="site">
+  <header class="sticky-top">
+    {{--!style="background-color: #1786d4 ;" --}}
   <nav class="navbar navbar-expand-xl navbar-light" style="background-color: #4A235E" >
-    <div class="container-fluid d-flex justify-content-xl-end">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container-fluid d-flex">
+      <div class="collapse navbar-collapse j" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-          <li class="nav-item" >
+          
+          <li class="nav-item ms-2" >
             <a class="nav-link active"  style="color: white ;"  aria-current="page" href="/animes/">Home</a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link active"  style="color: white" href="{{route('login')}}">Login</a>
+          <li class="nav-item ms-2">
+            <a class="nav-link active"  style="color: white" href="{{route('animes.ranking')}}">Ranking</a>
           </li>
         </ul>
+      
         @auth
-        
         <div class="dropdown">
           <button class="btn btn-primary  dropdown-toggle  " style="background-color: #14879C ; " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Sobre
@@ -37,8 +38,8 @@
           </div>
         </div>
       
-        <div class="nav-item ">
-          <button href="/sair" class="btn btn-primary ms-4 me-4  " style="background-color:#AD1D1A">Logout</button>
+        <div class="btn" >
+          <button href="/sair" class="btn btn-primary" style="background-color:#AD1D1A">Logout</button>
         </div>
         @endauth
         @guest
@@ -47,21 +48,21 @@
       </div>
     </div>
   </nav>
-</header>  
+  </header>  
 
-<main>
-  <div class="container">
+  <main class="pt-1 mt-1" style="min-height: 470px" >
+  <div class="container" >
     <div class="jumbotron" >
         <h1 class="mt-2">@yield('cabecalho')</h1>
     </div>
     @yield('conteudo')
     </div>
-</main>
+  </main>
 
 
-<footer class="footer mt-auto py-2 bg-light fixed-bottom"   >
-  <div class="container"  >
-    <div class="row mt-4"> 
+  <footer class="footer mt-auto py-2 bg-light position-relative bottom-0 ">
+  <div class="container">
+    <div class="row ms-4 mt-4"> 
       <div class="col-6 ">
         <h4>Copyright</h4>
         <span>Todos os direitos reservados</span>
@@ -77,30 +78,22 @@
       </div>
       <div class="col-2 ">
         <a class="me-2" href="https://github.com/IvandoNascimento" target="_blank"  rel="noopener noreferrer" >
-          <img src="{{url('/storage/images/GitHub-Mark-64px.png')}}" alt="Logo do GitHub" width="50">
+          <img src="{{url('/storage/images/GitHub-Mark-64px.png')}}" alt="Logo do GitHub" width="60">
         </a>
-        <a target="_blank" rel="noopener noreferrer">
-          <img src="{{url('/storage/images/Li-In-Bug.png')}}" alt="Logo do LinkedIn" width="50" height="50">
+        <a target="_blank" href="https://www.linkedin.com/in/ivan-do-nascimento-ferreira-3763681aa/" rel="noopener noreferrer">
+          <img src="{{url('/storage/images/Li-In-Bug.png')}}" alt="Logo do LinkedIn" width="60" height="50">
         </a>
       </div> 
     </div>
   </div>
-</footer>
-
-  
-
-
-
-
-
-
+  </footer>
+</div>
 
 
 <script>
   function dropDowm() {
-    console.log('teste');
     document.getElementById("myDropdown").classList.toggle("show");
-}
+  }
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
@@ -114,7 +107,8 @@ window.onclick = function(event) {
       }
     }
   }
-} 
+}
+  
 </script>
 </body>
 </html>
