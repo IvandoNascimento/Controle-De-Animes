@@ -30,6 +30,7 @@ Route::post('/animes/{id}/editaNome','AnimesController@editAnime')->middleware('
 Route::get('animes/ranking','AnimesController@rankingAnime')->name('animes.ranking');
 
 Route::get('/animes/{animeId}/temporadas','TemporadasController@index')->name('temporadas.index');
+Route::post('/animes/{animesId}/temporadas/edit','TemporadasController@update');
 
 Route::get('/temporadas/{temporadaId}/episodios','EpisodiosController@index')->name('episodios.index');
 Route::post('/temporadas/{temporadaId}/episodios/assistir','EpisodiosController@assistir')

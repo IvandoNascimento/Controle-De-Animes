@@ -84,7 +84,7 @@ class AnimesController extends Controller{
 
         
 
-        $request->session()->flash('mensagem', "Anime {$anime->nome} adicionado com sucesso na lista");
+        $request->session()->flash('mensagem', "Anime {$anime->nome} adicionado com sucesso");
 
         
         return redirect()->route('animes.index');

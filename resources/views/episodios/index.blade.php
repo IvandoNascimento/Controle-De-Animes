@@ -34,8 +34,6 @@
     function marcaTudo(){
 
         var $inputs = document.getElementsByTagName('input');
-        
-        console.log($inputs.length);
         var i = 0;
         var cont = 1;
         for(i=0; i<$inputs.length;i++){
@@ -43,7 +41,7 @@
                 cont++;
             }
         }
-        console.log(cont);
+        
         i = 0;
         if(cont < $inputs.length || cont == 0){
             for(i=0; i<$inputs.length;i++){

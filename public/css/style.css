@@ -1,5 +1,4 @@
 
-
 a {
   text-decoration: none;
 }
@@ -30,4 +29,9 @@ a {
 .dropdown-item:hover{
     background-color:deepskyblue;
     border-radius: 5px;
+  }
+
+  option{
+    
+    font-size: small;
   }

@@ -52,7 +52,7 @@
     </span>
     </li>
   @endforeach
-  <?php // print_r($animes)?> 
+  
 </ul>
 
 <script>
@@ -71,7 +71,7 @@
   }
   function editarAnime(animeId){
 
-    console.log('teste');
+    
     let formData = new FormData();
     const nome = document.querySelector(`#input-nome-anime-${animeId} > input`).value;
 

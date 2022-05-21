@@ -16,5 +16,17 @@ class TemporadasController extends Controller
        
         return view('temporadas.index',compact('temporadas','anime'));
     }
-    
+    public function update(int $id,Request $request)
+    {
+        $anime = Anime::find($id);
+        if($request->nome > 0){
+            $anime->rank = $request->nome;
+        }else{
+            $anime->status =$request->nome;
+        }
+        
+        
+        $anime->save();
+        
+    }
 }

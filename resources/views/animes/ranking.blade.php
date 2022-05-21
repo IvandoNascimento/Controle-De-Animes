@@ -27,7 +27,7 @@
         <td><a href="/animes/{{ $anime->id }}/temporadas">{{$anime->nome}}</a></td>
         <td>{{$anime->rank}}</td>
         <td>{{$anime->rank}}</td>
-        <td></td>
+        <td>{{ucfirst($anime->status)}}</td>
       </tr>
     
     @endforeach
