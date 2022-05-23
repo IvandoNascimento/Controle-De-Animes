@@ -2,21 +2,24 @@
 
 namespace App\Services;
 
-use App\{Anime, Temporada, Episodio};
+use App\{Anime, Temporada, Episodio,User};
 use Illuminate\Support\Facades\DB;
 
 class CriadorDeAnime
 {
 
-    public function CriarAnime(String $nome,String $sinopse, int $qtdTemp,int $epTemp): Anime
+    public function CriarAnime(String $nome,String $sinopse, int $qtdTemp,int $epTemp,int $userId): Anime
     {
         $anime =  null;
+        
         //DB::transaction(function () use ($nome,$sinopse,$qtdTemp,$epTemp,&$anime){
         DB::beginTransaction();
         $anime = Anime::create([
             'nome' => $nome,
-            'sinopse' => $sinopse
+            'sinopse' => $sinopse,
+            'user_id' => $userId
         ]);
+       
         $this->CriarTemporadas($anime,$qtdTemp,$epTemp);
         DB::commit();
         

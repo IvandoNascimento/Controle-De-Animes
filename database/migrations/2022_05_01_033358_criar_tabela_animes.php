@@ -17,6 +17,10 @@ class CriarTabelaAnimes extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('sinopse');
+            $table->integer('user_id');
+            //$table->foreign('user_id')
+            //->references('id')
+            //->on('users');
             //$table->int('episodios')->nullable;
             //$table->timestamps();
         });

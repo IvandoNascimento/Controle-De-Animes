@@ -38,8 +38,8 @@
           </div>
         </div>
       
-        <div class="btn" >
-          <button href="/sair" class="btn btn-primary" style="background-color:#AD1D1A">Logout</button>
+        <div class="btn">
+          <a href="{{route('sair')}}" class="btn btn-primary" style="background-color:#AD1D1A">Logout</a>
         </div>
         @endauth
         @guest

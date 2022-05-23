@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 //use Illuminate\Support\Facades\Request;
 
 use App\Anime;
-use App\Temporada;
+use App\User;
 use App\Episodio;
 
 class AnimesController extends Controller{
@@ -27,8 +27,9 @@ class AnimesController extends Controller{
     public function index(Request $request){
 
         
-
+        $user = $request->user();
         $animes = Anime::query()
+            ->where('user_id','=', $user->id)
             ->orderBy('nome')
             ->get();
         $mensagem = $request->session()->get('mensagem');
@@ -61,6 +62,7 @@ class AnimesController extends Controller{
         */
         //return view('animes.index', ['animes' => $animes]);
         $rota = $request->route()->getName();
+        
         return view('animes.index', compact('animes','mensagem','rota'));
     }
     
@@ -74,13 +76,14 @@ class AnimesController extends Controller{
         
        
         //$anime = Anime::create($request->all());
-        
-       $anime = $criadorDeAnime->CriarAnime(
+        $user = $request->user();
+        $anime = $criadorDeAnime->CriarAnime(
            $request->nome,
            $request->sinopse,
            $request->qtd_temporadas,
-           $request->ep_temporada
-         );
+           $request->ep_temporada,
+           $user->id
+        );
 
         
 

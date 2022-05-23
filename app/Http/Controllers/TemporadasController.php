@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 
 class TemporadasController extends Controller
 {
-    public function index(int $animeId)
+    public function index(int $animeId,Request $request)
     {
         $anime = Anime::find($animeId);
         $temporadas = $anime->temporadas;
         
-       
-        return view('temporadas.index',compact('temporadas','anime'));
+        $user = $request->user();
+        return view('temporadas.index',compact('temporadas','anime','user'));
     }
     public function update(int $id,Request $request)
     {

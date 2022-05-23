@@ -8,7 +8,7 @@ class Anime extends Model{
 
     public $timestamps = false;
 
-    protected $fillable = ['nome','sinopse'];
+    protected $fillable = ['nome','sinopse','user_id'];
 
 
     public function temporadas()

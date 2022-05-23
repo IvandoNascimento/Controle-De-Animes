@@ -11,8 +11,7 @@
 |
 */
 
-use App\Http\Controllers\AnimesController;
-use App\Mail\NovoAnime;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,7 +49,7 @@ Route::get('/sobre', 'SobreController@index')->name('sobre.index');
 Route::get('/sair', function () {
     Auth::logout();
     return redirect('/entrar');
-});
+})->name('sair');
 
 Route::get('/mail', function (){
     return new \App\Mail\NovoAnime();

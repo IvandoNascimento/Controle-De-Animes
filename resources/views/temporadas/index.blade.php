@@ -11,6 +11,8 @@
         <div class="col col-7">
             <h3>Sinopse</h3>
             <p> {{$anime->sinopse}}</p>
+            <p>anime user id {{$anime->user_id}}</p>
+            <p>user id {{$user->id}}</p>
         </div>
         <div class="col col-3">
             <span class="">  Status </span>
