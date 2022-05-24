@@ -26,11 +26,11 @@ class AnimesController extends Controller{
         $user = $request->user();
         if(!$user){
             $animes = Anime::query()
-            ->where('user_id','=', $user->id)
             ->orderBy('nome')
             ->get();
         }else{
             $animes = Anime::query()
+            ->where('user_id','=', $user->id)
             ->orderBy('nome')
             ->get();
         }

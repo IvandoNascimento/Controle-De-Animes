@@ -42,7 +42,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/entrar', 'EntrarController@index')->name('entrar');
 Route::post('/entrar', 'EntrarController@entrar');
 
-Route::get('/registrar', 'RegistroController@create');
+Route::get('/registrar', 'RegistroController@create')->name('registrar');
 Route::post('/registrar', 'RegistroController@store');
 
 Route::get('/sobre', 'SobreController@index')->name('sobre.index');
