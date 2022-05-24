@@ -1,7 +1,7 @@
 /node_modules
 /public/hot
-/public/storage
-/storage/*.key
+/public/framework/*.key
+/public/logs/*.key
 /vendor
 .env
 .env.backup
@@ -12,5 +12,5 @@ npm-debug.log
 yarn-error.log
 _ide_helper.php
 
-!public/storage/images/*
+
 
