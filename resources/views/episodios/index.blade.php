@@ -24,7 +24,7 @@
         </div>
         </ul>
         <div class="btn">
-            <button class="btn btn-primary">Salvar</button>
+            <button class="btn btn-success">Salvar</button>
         </div>
     </form>
     <div class="row"></div>

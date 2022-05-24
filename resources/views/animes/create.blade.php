@@ -29,6 +29,6 @@
   <textarea type="text-field" class="form-control" name="sinopse" id="sinopse"></textarea>
 
   </div>
-  <button class="btn btn-dark mt-2">Adicionar</button>
+  <button class="btn btn-success mt-2">Adicionar</button>
   </form>
 @endsection
