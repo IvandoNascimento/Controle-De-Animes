@@ -73,7 +73,7 @@
           <img src="{{url('/storage/images/GitHub-Mark-64px.png')}}" alt="Logo do GitHub" width="60">
         </a>
         <a target="_blank" href="https://www.linkedin.com/in/ivan-do-nascimento-ferreira-3763681aa/" rel="noopener noreferrer">
-          <img src="{{url('/storage/images/Li-In-Bug.png')}}" alt="Logo do LinkedIn" width="60" height="50">
+          <img src="{{url('/storage/images/LI-In-Bug.png')}}" alt="Logo do LinkedIn" width="60" height="50">
         </a>
       </div> 
     </div>
