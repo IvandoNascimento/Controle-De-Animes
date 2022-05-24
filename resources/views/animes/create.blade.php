@@ -27,14 +27,7 @@
     
   <label for="sinopse">Sinopse</label>
   <textarea type="text-field" class="form-control" name="sinopse" id="sinopse"></textarea>
-  <!--
-  <select class="form-group mt-2 " aria-label="Default select example" name="episodios">
-  <option selected>Selecione quantidade de ep</option>
-  <option value="1">12</option>
-  <option value="2">24</option>
-  <option value="3">+24</option>
-  </select>
--->
+
   </div>
   <button class="btn btn-dark mt-2">Adicionar</button>
   </form>

@@ -12,7 +12,6 @@
 <body>
 <div id="site">
   <header class="sticky-top">
-    {{--!style="background-color: #1786d4 ;" --}}
   <nav class="navbar navbar-expand-xl navbar-light" style="background-color: #4A235E" >
     <div class="container-fluid d-flex">
       <div class="collapse navbar-collapse j" id="navbarSupportedContent">
@@ -24,20 +23,17 @@
           <li class="nav-item ms-2">
             <a class="nav-link active"  style="color: white" href="{{route('animes.ranking')}}">Ranking</a>
           </li>
-        </ul>
-      
+        </ul>     
         @auth
         <div class="dropdown">
           <button class="btn btn-primary  dropdown-toggle  " style="background-color: #14879C ; " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Sobre
           </button>
           <div class="dropdown-content" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{{route('sobre.index')}}">Quem sou eu</a>
-            
+            <a class="dropdown-item" href="{{route('sobre.index')}}">Quem sou eu</a>            
             <a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://myanimelist.net/">My Anime List</a>
           </div>
-        </div>
-      
+        </div>      
         <div class="btn">
           <a href="{{route('sair')}}" class="btn btn-primary" style="background-color:#AD1D1A">Logout</a>
         </div>
@@ -49,7 +45,6 @@
     </div>
   </nav>
   </header>  
-
   <main class="pt-1 mt-1" style="min-height: 470px" >
   <div class="container" >
     <div class="jumbotron" >
@@ -58,8 +53,6 @@
     @yield('conteudo')
     </div>
   </main>
-
-
   <footer class="footer mt-auto py-2 bg-light position-relative bottom-0 ">
   <div class="container">
     <div class="row ms-4 mt-4"> 
@@ -69,8 +62,7 @@
       </div>
       <div class="col-1 ">
         <br>
-        <span>Contatos</span>
-        
+        <span>Contatos</span>    
       </div>
       <div class="col-3 ">
         <br>
@@ -88,15 +80,12 @@
   </div>
   </footer>
 </div>
-
-
 <script>
   function dropDowm() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
+  window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;

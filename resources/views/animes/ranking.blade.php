@@ -5,9 +5,6 @@
 @endsection
 
 @section('conteudo')
-
-
-
 <div>
   <table class="table table-light table-striped">
     <thead class="table-dark" >
@@ -20,16 +17,14 @@
       </tr>
     </thead>
     <tbody>
-    @foreach ($animes as $anime)
-      
+    @foreach ($animes as $anime)    
       <tr>
         <th scope="row">{{$i++}}</th>
         <td><a href="/animes/{{ $anime->id }}/temporadas">{{$anime->nome}}</a></td>
         <td>{{$anime->rank}}</td>
         <td>{{$anime->rank}}</td>
         <td>{{ucfirst($anime->status)}}</td>
-      </tr>
-    
+      </tr> 
     @endforeach
     </tbody>
   </table>

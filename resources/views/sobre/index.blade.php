@@ -20,20 +20,17 @@
                 <label class="" for="Idade">Idade</label>
 								<input readonly type="number" placeholder="21 Anos" class="form-control" >
 						</div>
-						<div class="col col-2">
-							<span>sla</span>
+						<div class="col col-2">	
 						</div>
 						<div class="col col-4">
 							<label for="">Formaçao</label>
 								<textarea readonly placeholder="Estudande de Bacharelado em Ciência da Computação na Universidade Federal do Agreste de Pernambuco. "
-							 name="" id="" cols="30" rows="3" style="resize: none;"></textarea>
-							
+							 name="" id="" cols="30" rows="3" style="resize: none;"></textarea>		
 						</div>
             <div class="col col-2">
 							<label for="">Tecnologias</label>
-								<textarea readonly placeholder="WEB: Html, Css, JavaScript, PHP, SQL, Laravel. &#10;Outras: Java, GitHub, C, Python, Arduino  "
-							 name="" id="" cols="22" rows="3" style="resize: none;"></textarea>
-							
+								<textarea readonly placeholder="WEB: Html, Css, JavaScript, PHP, SQL, Laravel. &#10;Outras: Java, Git, C, Python, Arduino  "
+							 name="" id="" cols="22" rows="3" style="resize: none;"></textarea>		
 						</div>
 					</div>
 				</div>
