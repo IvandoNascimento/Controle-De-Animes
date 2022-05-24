@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/059f12be04.js" crossorigin="anonymous"></script>
-    <title>Controle de animes</title>
+    <title>Lista de animes</title>
 </head>
 <body>
 <div id="site">

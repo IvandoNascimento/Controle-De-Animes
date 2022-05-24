@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('entrar.index');
+    return view('welcome');
 });
 
 Route::get('/oi', function (){
