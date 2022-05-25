@@ -21,7 +21,7 @@ class RemovedorDeAnimesTest extends TestCase
         $nomeAnime = "anime teste";
         $sinopse = "sinopse teste";
 
-        $this->anime = $criador->CriarAnime($nomeAnime,$sinopse,1,1);
+        $this->anime = $criador->CriarAnime($nomeAnime,$sinopse,1,1,1);
        
         
     }
