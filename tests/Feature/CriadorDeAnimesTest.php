@@ -18,7 +18,7 @@ class CriadorDeAnimesTest extends TestCase
         $criador = new CriadorDeAnime();
         $nomeAnime = "anime de teste";
         $sinopse = "aa";
-        $animeCriado = $criador->CriarAnime($nomeAnime,"aa",1,1);
+        $animeCriado = $criador->CriarAnime($nomeAnime,$sinopse,1,1,1);
         
 
         $this->assertInstanceOf(Anime::class,$animeCriado);

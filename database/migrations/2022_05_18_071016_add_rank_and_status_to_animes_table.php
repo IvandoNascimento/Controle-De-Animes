@@ -14,10 +14,8 @@ class AddRankAndStatusToAnimesTable extends Migration
     public function up()
     {
         Schema::table('animes', function (Blueprint $table) {
-            Schema::table('animes', function (Blueprint $table) {
-                $table->integer('rank')->default(1);
-                $table->enum('status',['completado','assistindo','pretendoAssistir'])->default('assistindo');
-            });
+            $table->integer('rank')->default(1);
+            $table->enum('status',['completado','assistindo','pretendoAssistir'])->default('assistindo');
         });
     }
 
