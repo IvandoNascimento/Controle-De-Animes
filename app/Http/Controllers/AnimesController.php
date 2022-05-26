@@ -35,15 +35,16 @@ class AnimesController extends Controller{
             ->get();
         }
        
-        $mensagem = $request->session()->get('mensagem');
+        $mensagens = $request->session()->get('mensagens');
         
         $rota = $request->route()->getName();
         
-        return view('animes.index', compact('animes','mensagem','rota'));
+        return view('animes.index', compact('animes','mensagens','rota'));
     }
     
-    public function create (){
-        return view('animes.create');
+    public function create (Request $request){
+        $mensagens = $request->session()->get('mensagens');
+        return view('animes.create',compact('mensagens'));
     }
    
 
@@ -56,12 +57,15 @@ class AnimesController extends Controller{
            $request->ep_temporada,
            $user->id
         );
-        $request->session()->flash('mensagem', "Anime {$anime->nome} adicionado com sucesso");
+        $session = session()->flash('mensagens', "Anime {$anime->nome} adicionado com sucesso");
+        $request->$session;
+        
         return redirect()->route('animes.index');
     }
     public function destroy(Request $request, RemoverAnime $removeAnime){
         $nomeAnime = $removeAnime->removerAnime($request->id);
-        $request->session()->flash('mensagem', "Anime $nomeAnime removido com sucesso ");
+        $session = session()->flash('mensagens', "Anime $nomeAnime removido com sucesso ");
+        $request->$session;
         
         return  redirect()->route('animes.index');
         

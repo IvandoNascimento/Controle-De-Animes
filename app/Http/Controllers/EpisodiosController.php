@@ -15,7 +15,7 @@ class EpisodiosController extends Controller
         return view('episodios.index',[
         'episodios' => $episodios,
         'temporadaId' => $temporadaId,
-        'mensagem' => $request->session()->get('mensagem')
+        'mensagens' => $request->session()->get('mensagens')
         ]);
     }
 
@@ -35,8 +35,8 @@ class EpisodiosController extends Controller
                 );
             });
             $temporada->push();
-    
-            $request->session()->flash('mensagem', 'Episódios marcados como assistidos');
+            $session = session()->flash('mensagens', 'Episódios marcados como assistidos');
+            $request->$session;
             
             
         }else{
@@ -44,7 +44,8 @@ class EpisodiosController extends Controller
                 $episodio->assistido = false;
             });
             $temporada->push();
-            $request->session()->flash('mensagem', 'Episódios desmarcados como assistidos');
+            $session = session()->flash('mensagens', 'Episódios desmarcados');
+            $request->$session;
         }
         return redirect()->back();
     }

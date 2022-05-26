@@ -1,11 +1,4 @@
-@extends('layout')
-
-@section('cabecalho')
-  Sobre
-@endsection
-
-
-@section('conteudo')
+<x-layout  cabecalho="Sobre mim">
   <div class="middle">
     <div class="text">
       <ul class="list-group" style="list-style: none">
@@ -61,4 +54,4 @@
       </ul>
     </div>   
   </div>
-@endsection
+</x-layout>

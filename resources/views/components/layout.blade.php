@@ -16,7 +16,6 @@
     <div class="container-fluid d-flex">
       <div class="collapse navbar-collapse j" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-          
           <li class="nav-item ms-2" >
             <a class="nav-link active"  style="color: white ;"  aria-current="page" href="/animes/">Home</a>
           </li>
@@ -48,9 +47,9 @@
   <main class="pt-1 mt-1" style="min-height: 470px" >
   <div class="container" >
     <div class="jumbotron" >
-        <h1 class="mt-2">@yield('cabecalho')</h1>
+        <h1 class="mt-2">{{$cabecalho}}</h1>
     </div>
-    @yield('conteudo')
+    {{$slot}}
     </div>
   </main>
   <footer class="footer mt-auto py-2 bg-light position-relative bottom-0 ">

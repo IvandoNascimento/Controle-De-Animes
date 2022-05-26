@@ -5,6 +5,7 @@ a {
 
 .nav-item:hover {
     background-color: deepskyblue;
+    border-radius: 5px;
 }
 
 
