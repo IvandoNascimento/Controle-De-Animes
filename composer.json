@@ -10,7 +10,6 @@
     "require": {
         "php": "^8.0.2",
         "barryvdh/laravel-ide-helper": "*",
-        "fideloper/proxy": "^4.0",
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
