@@ -8,15 +8,20 @@ class Anime extends Model{
 
     public $timestamps = false;
 
-    protected $fillable = ['nome','sinopse','user_id'];
-
+    protected $fillable = ['nome','sinopse'];
 
     public function temporadas()
     {
         return $this->hasMany(Temporada::class);
     }
     
-}
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+   
+}
 
 ?>

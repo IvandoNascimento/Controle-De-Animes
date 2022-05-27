@@ -8,19 +8,19 @@ use Illuminate\Support\Facades\DB;
 class CriadorDeAnime
 {
 
-    public function CriarAnime(String $nome,String $sinopse, int $qtdTemp,int $epTemp,int $userId): Anime
+    public function CriarAnime(String $nome,String $sinopse, int $qtdTemp,int $epTemp,User $user): Anime
     {
         $anime =  null;
         
         //DB::transaction(function () use ($nome,$sinopse,$qtdTemp,$epTemp,&$anime){
         DB::beginTransaction();
-        $anime = Anime::create([
+        $anime = $user->animes()->create([
             'nome' => $nome,
-            'sinopse' => $sinopse,
-            'user_id' => $userId
+            'sinopse' => $sinopse
         ]);
        
         $this->CriarTemporadas($anime,$qtdTemp,$epTemp);
+        
         DB::commit();
         
         return $anime;

@@ -25,6 +25,17 @@
          
         </tr> 
       @endforeach
+      <tbody>
+        @foreach ($groupwithcount as $groups)    
+          <tr>
+            <th scope="row">{{$i++}}</th>
+            <td>{{$groups->group->}}</a></td>
+            <td>{{$groups->group['nome']}}</td>
+            <td>t</td>
+            <td>a</td>
+          </tr> 
+        @endforeach
+        </tbody>
       </tbody>
     </table>
   </div>

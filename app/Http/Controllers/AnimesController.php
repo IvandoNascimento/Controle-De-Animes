@@ -37,9 +37,9 @@ class AnimesController extends Controller{
        
         $mensagens = $request->session()->get('mensagens');
         
-        $rota = $request->route()->getName();
+        //$rota = $request->route()->getName();
         
-        return view('animes.index', compact('animes','mensagens','rota'));
+        return view('animes.index', compact('animes','mensagens','user'));
     }
     
     public function create (Request $request){
@@ -55,7 +55,7 @@ class AnimesController extends Controller{
            $request->sinopse,
            $request->qtd_temporadas,
            $request->ep_temporada,
-           $user->id
+           $user
         );
         $session = session()->flash('mensagens', "Anime {$anime->nome} adicionado com sucesso");
         $request->$session;
@@ -81,6 +81,14 @@ class AnimesController extends Controller{
         $animes = Anime::query()
             ->orderBy('nome')
             ->get();
-        return view('animes.ranking', compact('animes','i'));
+        $groups= $animes->groupBy('nome');
+        $groupwithcount = $groups->map(function ($group) {
+            return [
+                'nome' => $group->first()['nome'], // opposition_id is constant inside the same group, so just take the first or whatever.
+                'rank' => $group->sum('rank'),
+                
+            ];
+        });
+        return view('animes.ranking', compact('animes','i','groupwithcount'));
     }
 }
