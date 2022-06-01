@@ -1,4 +1,4 @@
-<x-layout  cabecalho="{{$user->name}}, Sua Lista de Animes">
+<x-layout  cabecalho="Lista de Animes">
 
   <x-mensagem :mensagens="$mensagens">{{$mensagens}}</x-mensagem>
   

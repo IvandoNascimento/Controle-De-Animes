@@ -10,20 +10,26 @@
     <title>Lista de animes</title>
 </head>
 <body>
-<div id="site">
+<div id="site ">
   <header class="sticky-top">
   <nav class="navbar navbar-expand-xl navbar-light" style="background-color: #4A235E" >
     <div class="container-fluid d-flex">
       <div class="collapse navbar-collapse j" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          @auth
           <li class="nav-item ms-2" >
             <a class="nav-link active"  style="color: white ;"  aria-current="page" href="/animes/">Home</a>
+          </li>
+          @endauth
+          <li class="nav-item ms-2">
+            <a href="/animes/" style="color: white" class="nav-link active">Lista</a>
           </li>
           <li class="nav-item ms-2">
             <a class="nav-link active"  style="color: white" href="{{route('animes.ranking')}}">Ranking</a>
           </li>
         </ul>     
         @auth
+        
         <div class="dropdown">
           <button class="btn btn-primary  dropdown-toggle  " style="background-color: #14879C ; " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Sobre
@@ -38,13 +44,20 @@
         </div>
         @endauth
         @guest
-        <a  class="nav-link active" style="color: white" href="/entrar">Entrar</a>
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <a  class="nav-link active" style="color: white" href="/entrar">Entrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="color: white" href="{{ route('registrar') }}">Registrar</a>
+          </li>
+        </ul>
         @endguest
       </div>
     </div>
   </nav>
   </header>  
-  <main class="pt-1 mt-1" style="min-height: 470px" >
+  <main class="pt-1 mt-1 bg-light" style="min-height: 470px" >
   <div class="container" >
     <div class="jumbotron" >
         <h1 class="mt-2">{{$cabecalho}}</h1>
@@ -52,7 +65,7 @@
     {{$slot}}
     </div>
   </main>
-  <footer class="footer mt-auto py-2 bg-light position-relative bottom-0 ">
+  <footer class="footer mt-auto py-1 bg-light position-relative bottom-0 ">
   <div class="container">
     <div class="row ms-4 mt-4"> 
       <div class="col-6 ">

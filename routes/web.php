@@ -27,6 +27,7 @@ Route::get('/animes/criar', 'AnimesController@create')->name('adicionar_anime')-
 Route::post('/animes/criar','AnimesController@store')->middleware('autenticador');
 Route::delete('/animes/{id}','AnimesController@destroy')->middleware('autenticador');
 Route::post('/animes/{id}/editaNome','AnimesController@editAnime')->middleware('autenticador');
+Route::get('animes/lista','AnimesController@listaAnime')->name('animes.lista');
 Route::get('animes/ranking','AnimesController@rankingAnime')->name('animes.ranking');
 
 Route::get('/animes/{animeId}/temporadas','TemporadasController@index')->name('temporadas.index');

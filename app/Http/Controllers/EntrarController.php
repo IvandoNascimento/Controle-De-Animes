@@ -17,7 +17,7 @@ class EntrarController extends Controller
         {
             return redirect()->back()->withErrors('Usuario e/ou senha invalidos');
         }
-        return redirect()->route('animes.index');
+        return redirect()->route('animes.lista');
         
     }
 }   
