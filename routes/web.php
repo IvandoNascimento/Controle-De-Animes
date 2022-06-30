@@ -13,6 +13,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AnimesController;
+use App\Http\Controllers\TemporadasController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,18 +24,18 @@ Route::get('/oi', function (){
     echo 'Sou eu, a primeira  <br>';
 });
 
-Route::get('/animes', 'AnimesController@index')->name('animes.index');
-Route::get('/animes/criar', 'AnimesController@create')->name('adicionar_anime')->middleware('autenticador');
-Route::post('/animes/criar','AnimesController@store')->middleware('autenticador');
-Route::delete('/animes/{id}','AnimesController@destroy')->middleware('autenticador');
-Route::post('/animes/{id}/editaNome','AnimesController@editAnime')->middleware('autenticador');
-Route::get('animes/lista','AnimesController@listaAnime')->name('animes.lista');
-Route::get('animes/ranking','AnimesController@rankingAnime')->name('animes.ranking');
+Route::get('/animes', [AnimesController::class, 'index'])->name('animes.index');
+Route::get('/animes/criar', [AnimesController::class, 'create'])->name('animes.create')->middleware('autenticador');
+Route::post('/animes/criar',[AnimesController::class, 'store'])->middleware('autenticador');
+Route::delete('/animes/{id}',[AnimesController::class, 'remove'])->name('animes.remove')->middleware('autenticador');
+Route::post('/animes/{id}/editaNome',[AnimesController::class, 'edit'])->middleware('autenticador');
+Route::get('animes/lista',[AnimesController::class, 'list'])->name('animes.lista');
+Route::get('animes/ranking',[AnimesController::class, 'ranking'])->name('animes.ranking');
 
-Route::get('/animes/{animeId}/temporadas','TemporadasController@index')->name('temporadas.index');
-Route::post('/animes/{animesId}/temporadas/edit','TemporadasController@update');
+Route::get('/animes/{animeId}/temporadas',[TemporadasController::class, 'index'])->name('temporadas.index')->middleware('autenticador');
+Route::post('/animes/{animeId}/temporadas/edit',[TemporadasController::class,'update'])->name('temporadas.edit')->middleware('autenticador');
 
-Route::get('/temporadas/{temporadaId}/episodios','EpisodiosController@index')->name('episodios.index');
+Route::get('/temporadas/{temporadaId}/episodios','EpisodiosController@index')->name('episodios.index')->middleware('autenticador');
 Route::post('/temporadas/{temporadaId}/episodios/assistir','EpisodiosController@assistir')
 ->name('episodios.assistir')->middleware('autenticador');
 Auth::routes();

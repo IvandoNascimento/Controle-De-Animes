@@ -48,7 +48,7 @@ class AnimesController extends Controller{
         
         return redirect()->route('animes.index');
     }
-    public function destroy(Request $request, RemoverAnime $removeAnime){
+    public function remove(Request $request, RemoverAnime $removeAnime){
         $nomeAnime = $removeAnime->removerAnime($request->id);
         $session = session()->flash('mensagens', "Anime $nomeAnime removido com sucesso ");
         $request->$session;
@@ -56,7 +56,7 @@ class AnimesController extends Controller{
         return  redirect()->route('animes.index');
         
     }
-    public function listaAnime(Request $request){
+    public function list(Request $request){
         $user = $request->user();
         $animes = Anime::query()
         ->where('user_id','=', $user->id)
@@ -69,14 +69,14 @@ class AnimesController extends Controller{
         
         return view('animes.lista', compact('animes','mensagens',));
     }
-    public function editAnime(int $id,Request $request){
+    public function edit(int $id,Request $request){
         $novoNome = $request->nome;
         $anime = Anime::find($id);
         $anime->nome = $novoNome;
         $anime->save();
     }
    
-    public function rankingAnime(Request $request){
+    public function ranking(Request $request){
         $i=1;
         $animes = Anime::query()
             ->orderBy('nome')

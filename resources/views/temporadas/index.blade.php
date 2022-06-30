@@ -5,19 +5,18 @@
                 <h3>Sinopse</h3>
                 <p> {{$anime->sinopse}}</p>
             </div>
+            
             <div class="col col-3">
                 <span class="">  Status </span>
-                <select id="opt1" class="form-select" aria-label="Default select example"
-                onchange="atualiza(this.options[this.selectedIndex].value,{{$anime->id}})" >
-                    <option {{$anime->status == 'assistindo' ? 'selected' : 'value=assistindo'}}>Assistindo</option>
-                    <option {{$anime->status == 'completado' ? 'selected' : 'value=completado'}}>Completado</option>
-                    <option {{$anime->status == 'pretendoAssistir' ? 'selected' : 'value=pretendoAssistir'}}>Pretendo Assistir</option>
+                <select id="opt" class="form-select" aria-label="Default select example">
+                    <option {{$anime->status == 'completado' ? 'selected ' : ''}} value=completado>Completado</option>
+                    <option {{$anime->status == 'assistindo' ? 'selected ' : ''}} value=assistindo>Assistindo</option>
+                    <option {{$anime->status == 'pretendoAssistir' ? 'selected ' : ''}} value=pretendoAssistir>Pretendo Assistir</option>
                 </select>
             </div>
             <div class="col col-2">
                 <span>  Nota </span>
-                <select id="opt2" class="form-select " aria-label="Default select example" 
-                onchange="atualiza(this.options[this.selectedIndex].value,{{$anime->id}})">
+                <select id="opt" class="form-select " aria-label="Default select example" >
                     <option  {{$anime->rank == 1 ? 'selected' : 'value=1'}}>1</option>
                     <option  {{$anime->rank == 2 ? 'selected' : 'value=2'}}>2</option>
                     <option  {{$anime->rank == 3 ? 'selected' : 'value=3'}}>3</option>
@@ -48,15 +47,45 @@
     </div>
 
     <script>
-        function atualiza(selecionado,animeId){
+        
+        const opcoes = document.querySelectorAll("#opt");
+        opcoes.forEach((opt) => {
+            opt.addEventListener("change", (evento) => {
+                console.log(evento);
+                console.log(evento.target.value);
+                
+                atualiza({{$anime->id}},evento.target.value);
+            })
+            
+        });
+        function mudar(opt){
+            console.log("teste");
+            atualiza(evento.target.value,{{$anime->id}});
+        }
+       
+        function atualiza(animeId,dado){
             let formData = new FormData();
+            
+            const status = opcoes[0].value;
+            const rank = opcoes[1].value;
+            console.log("dado");
+            console.log(status);
+            console.log(rank);
+            
             const token = document.querySelector('input[name="_token"]').value;
-            formData.append('nome', selecionado);
+            formData.append('rank', rank);
+            formData.append('status', status);
+            //formData.append('dado',dado);
             formData.append('_token',token);
 
-            const url = `/animes/${animeId}/temporadas/edit`;
+            //const url = `/animes/${animeId}/temporadas/edit`;
+            const url = `temporadas/edit`;
+            
             fetch(url,{ method: 'POST', body: formData
+            
             });
+            
         }
+        
     </script>
 </x-layout>
