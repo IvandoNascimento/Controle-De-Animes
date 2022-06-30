@@ -4,7 +4,7 @@
   
 
   @auth
-  <a href="{{route('adicionar_anime')}}" class="btn btn-success mt-2 mb-2" >Adicionar</a>
+  <a href="{{route('animes.create')}}" class="btn btn-success mt-2 mb-2" >Adicionar</a>
 
   @endauth
   <ul class="list-group ">
@@ -28,11 +28,11 @@
             <i class="fas fa-edit"></i>
         </button>
         @endauth
-        <a href="/animes/{{ $anime->id }}/temporadas" class="btn btn-info btn-sm me-1">
-            <i class="fas fa-external-link-alt"></i>
-        </a>
+        <a class="btn btn-info btn-sm me-1" href="{{route('temporadas.index', ['animeId' => $anime->id])}}" >
+          <i class="fas fa-external-link-alt"></i>
+      </a>
         @auth
-        <form method="post" action="/animes/{{ $anime->id }}"
+        <form method="post" action="{{route('animes.remove', ['id' => $anime->id])}}"
               onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($anime->nome) }}?')">
             @csrf
             @method('DELETE')
@@ -41,7 +41,7 @@
             </button>
             
         </form>
-          <a href="/animes/ranking" class="btn btn-primary btn-sm ms-1" ><i class="fa-solid fa-ranking-star"></i></a>
+          <a href="{{route('animes.ranking')}}" class="btn btn-primary btn-sm ms-1" ><i class="fa-solid fa-ranking-star"></i></a>
         @endauth
       </span>
       </li>
@@ -70,8 +70,6 @@
       const nome = document.querySelector(`#input-nome-anime-${animeId} > input`).value;
 
       const token = document.querySelector('input[name="_token"]').value;
-      
-
       
       formData.append('nome', nome);
       formData.append('_token',token);
