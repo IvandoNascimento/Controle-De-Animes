@@ -1,4 +1,4 @@
-<x-layout  cabecalho="Lista de Animes">
+<x-layout  cabecalho="Lista de Animes do Site">
 
   <x-mensagem :mensagens="$mensagens">{{$mensagens}}</x-mensagem>
   

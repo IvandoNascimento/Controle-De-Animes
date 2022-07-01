@@ -16,14 +16,14 @@
     <div class="container-fluid d-flex">
       <div class="collapse navbar-collapse j" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item ms-2">
+            <a href="{{route('animes.index')}}" style="color: white" class="nav-link active">Home</a>
+          </li>
           @auth
           <li class="nav-item ms-2" >
-            <a class="nav-link active"  style="color: white ;"  aria-current="page" href="{{route('animes.index')}}">Home</a>
+            <a class="nav-link active"  style="color: white "  aria-current="page" href="{{route('animes.lista')}}">Lista</a>
           </li>
           @endauth
-          <li class="nav-item ms-2">
-            <a href="{{route('animes.lista')}}" style="color: white" class="nav-link active">Lista</a>
-          </li>
           <li class="nav-item ms-2">
             <a class="nav-link active"  style="color: white" href="{{route('animes.ranking')}}">Ranking</a>
           </li>

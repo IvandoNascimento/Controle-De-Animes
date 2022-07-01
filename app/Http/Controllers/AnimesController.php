@@ -8,6 +8,7 @@ use App\Http\Requests\AnimesFormRequest;
 use App\Services\CriadorDeAnime;
 use App\Services\RemoverAnime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Anime;
 
@@ -50,9 +51,9 @@ class AnimesController extends Controller{
         
     }
     public function list(Request $request){
-        $user = $request->user();
+        //$user = Auth::user();
         $animes = Anime::query()
-        ->where('user_id','=', $user->id)
+        ->where('user_id','=', '1')
         ->orderBy('nome')
         ->get();
 

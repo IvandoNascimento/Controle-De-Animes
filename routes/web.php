@@ -31,7 +31,7 @@ Route::controller(AnimesController::class)->group(function () {
     Route::post('/animes/criar', 'store')->middleware('autenticador');
     Route::delete('/animes/{id}', 'remove')->name('animes.remove')->middleware('autenticador');
     Route::post('/animes/{id}/editaNome', 'edit')->middleware('autenticador');
-    Route::get('animes/lista', 'list')->name('animes.lista');
+    Route::get('animes/lista', 'list')->name('animes.lista')->middleware('autenticador');
     Route::get('animes/ranking', 'ranking')->name('animes.ranking');
 });
 
