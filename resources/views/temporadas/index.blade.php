@@ -54,31 +54,26 @@
                 console.log(evento);
                 console.log(evento.target.value);
                 
-                atualiza({{$anime->id}},evento.target.value);
+                atualiza({{$anime->id}});
             })
             
         });
-        function mudar(opt){
-            console.log("teste");
-            atualiza(evento.target.value,{{$anime->id}});
-        }
+        
        
-        function atualiza(animeId,dado){
+        function atualiza(animeId){
             let formData = new FormData();
             
             const status = opcoes[0].value;
             const rank = opcoes[1].value;
-            console.log("dado");
-            console.log(status);
-            console.log(rank);
+            
             
             const token = document.querySelector('input[name="_token"]').value;
             formData.append('rank', rank);
             formData.append('status', status);
-            //formData.append('dado',dado);
+            
             formData.append('_token',token);
 
-            //const url = `/animes/${animeId}/temporadas/edit`;
+            
             const url = `temporadas/edit`;
             
             fetch(url,{ method: 'POST', body: formData

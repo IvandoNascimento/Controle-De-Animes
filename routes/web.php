@@ -13,8 +13,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\AnimesController;
-use App\Http\Controllers\TemporadasController;
+
+use App\Http\Controllers\{AnimesController, EntrarController, TemporadasController, EpisodiosController, 
+    HomeController,SobreController};
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,31 +25,41 @@ Route::get('/oi', function (){
     echo 'Sou eu, a primeira  <br>';
 });
 
-Route::get('/animes', [AnimesController::class, 'index'])->name('animes.index');
-Route::get('/animes/criar', [AnimesController::class, 'create'])->name('animes.create')->middleware('autenticador');
-Route::post('/animes/criar',[AnimesController::class, 'store'])->middleware('autenticador');
-Route::delete('/animes/{id}',[AnimesController::class, 'remove'])->name('animes.remove')->middleware('autenticador');
-Route::post('/animes/{id}/editaNome',[AnimesController::class, 'edit'])->middleware('autenticador');
-Route::get('animes/lista',[AnimesController::class, 'list'])->name('animes.lista');
-Route::get('animes/ranking',[AnimesController::class, 'ranking'])->name('animes.ranking');
+Route::controller(AnimesController::class)->group(function () {
+    Route::get('/animes', 'index')->name('animes.index');
+    Route::get('/animes/criar', 'create')->name('animes.create')->middleware('autenticador');
+    Route::post('/animes/criar', 'store')->middleware('autenticador');
+    Route::delete('/animes/{id}', 'remove')->name('animes.remove')->middleware('autenticador');
+    Route::post('/animes/{id}/editaNome', 'edit')->middleware('autenticador');
+    Route::get('animes/lista', 'list')->name('animes.lista');
+    Route::get('animes/ranking', 'ranking')->name('animes.ranking');
+});
 
-Route::get('/animes/{animeId}/temporadas',[TemporadasController::class, 'index'])->name('temporadas.index')->middleware('autenticador');
-Route::post('/animes/{animeId}/temporadas/edit',[TemporadasController::class,'update'])->name('temporadas.edit')->middleware('autenticador');
+Route::controller(TemporadasController::class)->group(function (){
+    Route::get('/animes/{animeId}/temporadas', 'index')->name('temporadas.index')->middleware('autenticador');
+    Route::post('/animes/{animeId}/temporadas/edit','update')->name('temporadas.edit')->middleware('autenticador');
+    
+});
+Route::controller(EpisodiosController::class)->group(function (){
+    Route::get('/temporadas/{temporadaId}/episodios', 'index')->name('episodios.index')->middleware('autenticador');
+    Route::post('/temporadas/{temporadaId}/episodios/assistir', 'assistir')
+    ->name('episodios.assistir')->middleware('autenticador');
 
-Route::get('/temporadas/{temporadaId}/episodios','EpisodiosController@index')->name('episodios.index')->middleware('autenticador');
-Route::post('/temporadas/{temporadaId}/episodios/assistir','EpisodiosController@assistir')
-->name('episodios.assistir')->middleware('autenticador');
+});
 Auth::routes();
+Route::get('/home', [HomeController::class,'index'])->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::controller(EntrarController::class)->group(function (){
+    Route::get('/entrar', 'index')->name('entrar');
+    Route::post('/entrar', 'entrar');
+});
 
-Route::get('/entrar', 'EntrarController@index')->name('entrar');
-Route::post('/entrar', 'EntrarController@entrar');
+Route::controller(EntrarController::class)->group(function (){
+    Route::get('/registrar', 'create')->name('registrar');
+    Route::post('/registrar', 'store');
+});
 
-Route::get('/registrar', 'RegistroController@create')->name('registrar');
-Route::post('/registrar', 'RegistroController@store');
-
-Route::get('/sobre', 'SobreController@index')->name('sobre.index');
+Route::get('/sobre', [SobreController::class,'index'])->name('sobre.index');
 
 Route::get('/sair', function () {
     Auth::logout();

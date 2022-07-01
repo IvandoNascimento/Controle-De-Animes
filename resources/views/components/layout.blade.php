@@ -18,11 +18,11 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           @auth
           <li class="nav-item ms-2" >
-            <a class="nav-link active"  style="color: white ;"  aria-current="page" href="/animes/">Home</a>
+            <a class="nav-link active"  style="color: white ;"  aria-current="page" href="{{route('animes.index')}}">Home</a>
           </li>
           @endauth
           <li class="nav-item ms-2">
-            <a href="/animes/" style="color: white" class="nav-link active">Lista</a>
+            <a href="{{route('animes.lista')}}" style="color: white" class="nav-link active">Lista</a>
           </li>
           <li class="nav-item ms-2">
             <a class="nav-link active"  style="color: white" href="{{route('animes.ranking')}}">Ranking</a>
@@ -46,7 +46,7 @@
         @guest
         <ul class="navbar-nav ">
           <li class="nav-item">
-            <a  class="nav-link active" style="color: white" href="/entrar">Entrar</a>
+            <a  class="nav-link active" style="color: white" href="{{route('entrar')}}">Entrar</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" style="color: white" href="{{ route('registrar') }}">Registrar</a>
